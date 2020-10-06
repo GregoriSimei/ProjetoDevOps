@@ -1,1 +1,18 @@
-<p>remover-farma works!</p>
+<p>Tem certeza que deseja remover a farmacia:</p>
+<table>
+    <tr>
+      <th>ID</th>
+      <th>CNPJ</th>
+      <th>Nome </th>
+      <th>Data do cadastro</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>{{farma._id}}</td>
+      <td>{{farma.cnpj}}</td>
+      <td>{{farma.nome}}</td>
+      <td>{{farma.criadoEm | date: "dd/MM/yyyy hh:mm"}}</td>
+    </tr>
+  </table> 
+
+<button (click)="remover()">SIM</button>

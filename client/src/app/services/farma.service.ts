@@ -12,7 +12,7 @@ export class FarmaService {
   buscarURL = 'http://localhost:1234/farmacia/buscar/';
   listarURL = 'http://localhost:1234/farmacia/listar';
   alterarURL = 'http://localhost:1234/farmacia/alterar';
-  removerURL = 'http://localhost:1234/farmacia/remover/:cnpj';
+  removerURL = 'http://localhost:1234/farmacia/remover/';
 
   constructor(private http: HttpClient) { }
 

@@ -33,4 +33,8 @@ export class BuscarFarmaComponent implements OnInit {
     this.router.navigate(['farma/alterar/'+this.farma.cnpj]);
   }
 
+  navigateToRemoveFarma(): void {
+    this.router.navigate(['farma/remover/'+this.farma.cnpj]);
+  }
+
 }
