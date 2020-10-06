@@ -1,1 +1,16 @@
 <p>alterar-farma works!</p>
+<input 
+    type="text" 
+    placeholder="Nome da Farmácia"
+    name="nome"
+    [(ngModel)]="farma.nome"
+/>
+
+<input 
+    type="text" 
+    placeholder="CNPJ da Farmácia"
+    name="cnpj"
+    [(ngModel)]="farma.cnpj"
+/>
+
+<button (click)="alterar()">Alterar</button>

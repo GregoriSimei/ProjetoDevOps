@@ -29,4 +29,8 @@ export class BuscarFarmaComponent implements OnInit {
     
   }
 
+  navigateToUpdateFarma(): void {
+    this.router.navigate(['farma/alterar/'+this.farma.cnpj]);
+  }
+
 }

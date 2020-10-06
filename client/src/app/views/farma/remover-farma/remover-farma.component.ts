@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Farmacia } from "src/app/models/Farmacia";
+import { FarmaService } from 'src/app/services/farma.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-remover-farma',
@@ -6,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./remover-farma.component.css']
 })
 export class RemoverFarmaComponent implements OnInit {
+  farma: Farmacia = {
+    nome: "",
+    cnpj: ""
+  };
+  constructor(private router: Router, private farmaService: FarmaService) {}
 
-  constructor() { }
+  remover(): void {
+    this.farmaService.remover(this.farma).subscribe((farma) => {
+    console.log(farma);
+    this.farma = farma;
+    });
+  }
 
   ngOnInit(): void {
   }

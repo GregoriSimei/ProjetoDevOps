@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
 import { BuscarFarmaComponent } from './views/farma/buscar-farma/buscar-farma.component';
 import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.component';
 import { ListFarmaComponent } from './views/farma/list-farma/list-farma.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'farma/buscar',
     component: BuscarFarmaComponent
+  },
+  {
+    path: 'farma/alterar/:cnpj',
+    component: AlterarFarmaComponent
   },
   {
     path: 'farma/:cnpj/produto',

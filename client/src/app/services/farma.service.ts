@@ -23,7 +23,12 @@ export class FarmaService {
     return this.http.post<Farmacia>(this.cadastrarURL, farma);
   }
   buscar(farma: Farmacia): Observable<Farmacia> {
-    //var cnpjFarmacia = farma.cnpj;
-    return this.http.get<Farmacia>(this.buscarURL + farma.cnpj);
+  return this.http.get<Farmacia>(this.buscarURL + farma.cnpj);
   }
+  alterar(farma: Farmacia): Observable<Farmacia> {
+    return this.http.post<Farmacia>(this.alterarURL, farma);
+  }
+  remover(farma: Farmacia): Observable<Farmacia> {
+    return this.http.get<Farmacia>(this.removerURL + farma.cnpj);
+    }
 }
