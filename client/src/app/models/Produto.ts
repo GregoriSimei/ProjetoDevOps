@@ -1,9 +1,9 @@
-export class Produto{
+export class Produto {
     _id?: string;
     name: string;
-    codigo: string;  
+    codigo: string;
     preco: number;
     descricao: string;
-    cnpjFarmacia: number;
+    cnpjFarmacia: String;
     criadoEm: Date;
 }
