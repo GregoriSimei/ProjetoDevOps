@@ -13,7 +13,10 @@ import { ProdutoService } from '../../../services/produto.service';
 export class ListProdutoComponent implements OnInit {
 
   cnpjFarmacia: string;
-  farmacia: Farmacia;
+  farmacia: Farmacia = {
+    nome: "",
+    cnpj: ""
+  };
   produtos: Produto[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private serviceProd: ProdutoService, private serviceFarma: FarmaService) { }
