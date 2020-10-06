@@ -11,6 +11,9 @@ import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.co
 import { ListProdutoComponent } from './views/prod/list-produto/list-produto.component';
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
+import { BuscarFarmaComponent } from './views/farma/buscar-farma/buscar-farma.component';
+import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
+import { RemoverFarmaComponent } from './views/farma/remover-farma/remover-farma.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { UpdateProdutoComponent } from './views/prod/update-produto/update-produ
     CreateFarmaComponent,
     ListProdutoComponent,
     CreateProdutoComponent,
-    UpdateProdutoComponent
+    UpdateProdutoComponent,
+    BuscarFarmaComponent,
+    AlterarFarmaComponent,
+    RemoverFarmaComponent
   ],
   imports: [
     BrowserModule,

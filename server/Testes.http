@@ -8,7 +8,7 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:1234/farmacia/buscar/111
+GET http://localhost:1234/farmacia/buscar/444
 
 ###
 GET http://localhost:1234/farmacia/listar
@@ -18,7 +18,7 @@ POST http://localhost:1234/farmacia/alterar
 content-type: application/json
 
 {
-    "nome": "Farmacia 2",
+    "nome": "Farmacia 222222",
     "cnpj": "555"
 }
 
@@ -47,7 +47,7 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:1234/produto/buscar/111/54321
+GET http://localhost:1234/produto/buscar/111/12345
 
 ###
 GET http://localhost:1234/produto/listar/111
@@ -58,7 +58,7 @@ content-type: application/json
 
 {
     "nome": "Suco",
-    "codigo": "54321",
+    "codigo": "12345",
     "preco": 27,
     "descricao": "bebidas",
     "cnpjFarmacia": "111"

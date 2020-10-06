@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 export class FarmaService {
 
   cadastrarURL = 'http://localhost:1234/farmacia/cadastrar';
-  buscarURL = 'http://localhost:1234/farmacia/buscar/:cnpj';
+  buscarURL = 'http://localhost:1234/farmacia/buscar/';
   listarURL = 'http://localhost:1234/farmacia/listar';
   alterarURL = 'http://localhost:1234/farmacia/alterar';
   removerURL = 'http://localhost:1234/farmacia/remover/:cnpj';
@@ -21,5 +21,9 @@ export class FarmaService {
   }
   create(farma: Farmacia): Observable<Farmacia>{
     return this.http.post<Farmacia>(this.cadastrarURL, farma);
+  }
+  buscar(farma: Farmacia): Observable<Farmacia>{
+    //var cnpjFarmacia = farma.cnpj;
+    return this.http.get<Farmacia>(this.buscarURL + farma.cnpj);
   }
 }
