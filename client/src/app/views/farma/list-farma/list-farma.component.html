@@ -1,5 +1,5 @@
 <button (click)="navigateToCreateFarma()">
-    Cadastrar Farmácia
+  Cadastrar Farmácia
 </button>
 
 <table>
@@ -11,7 +11,7 @@
   </tr>
   <tr *ngFor="let farma of farmas">
     <td>{{farma._id}}</td>
-    <td>{{farma.nome}}</td>
+    <td><a routerLink="farma/{{farma.cnpj}}/produto">{{farma.nome}}</a></td>
     <td>{{farma.cnpj}}</td>
     <td>{{farma.criadoEm | date: "dd/MM/yyyy hh:mm"}}</td>
     <td>
