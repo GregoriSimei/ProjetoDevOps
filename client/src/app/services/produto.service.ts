@@ -17,8 +17,8 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
-  cadastrar(produto: Produto) {
-    this.http.post<Produto>(this.cadastrarURL, produto);
+  cadastrar(produto: Produto): Observable<Produto> {
+    return this.http.post<Produto>(this.cadastrarURL, produto);
   }
 
   buscar(produto: Produto): Observable<Produto> {

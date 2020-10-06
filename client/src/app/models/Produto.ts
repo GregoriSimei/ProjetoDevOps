@@ -1,9 +1,9 @@
 export class Produto {
     _id?: string;
-    name: string;
+    nome: string;
     codigo: string;
     preco: number;
     descricao: string;
     cnpjFarmacia: String;
-    criadoEm: Date;
+    criadoEm?: Date;
 }
