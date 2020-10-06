@@ -1,5 +1,5 @@
-<p>Produtos da farmacia: </p>
-<button (click)="cadastrar()">Cadastrar Produto</button>
+<p>Produtos da farmacia: {{farmacia.nome | uppercase}}</p>
+<button (click)="cadastrarProduto()">Cadastrar Produto</button>
 <table>
     <tr>
         <th>Codigo</th>
@@ -7,6 +7,7 @@
         <th>Preco</th>
         <th>Descricao</th>
         <th>Data Criacao</th>
+        <th></th>
         <th></th>
     </tr>
     <tr *ngFor="let produto of produtos">
@@ -16,5 +17,6 @@
         <td>{{produto.descricao}}</td>
         <td>{{produto.criadoEm}}</td>
         <td><a routerLink="farma/{{cnpj}}/produto/{{produto.codigo}}">Alterar</a></td>
+        <td><button (click)="removerProduto(produto)">Deletar</button></td>
     </tr>
 </table>

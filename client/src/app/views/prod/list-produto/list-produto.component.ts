@@ -12,7 +12,7 @@ import { ProdutoService } from '../../../services/produto.service';
 })
 export class ListProdutoComponent implements OnInit {
 
-  cnpjFarmacia: Number;
+  cnpjFarmacia: string;
   farmacia: Farmacia;
   produtos: Produto[] = [];
 
@@ -23,10 +23,17 @@ export class ListProdutoComponent implements OnInit {
     this.serviceProd.listar(this.cnpjFarmacia).subscribe((lista) => {
       this.produtos = lista;
     });
+    this.serviceFarma.buscar({ nome: "", cnpj: this.cnpjFarmacia }).subscribe((farma) => {
+      this.farmacia = farma;
+    });
   }
 
-  cadastrar() {
+  cadastrarProduto() {
     this.router.navigate(['farma/' + this.cnpjFarmacia + '/cadastrar/produto']);
+  }
+
+  removerProduto(produto: Produto) {
+    this.serviceProd.remover(produto);
   }
 
 }

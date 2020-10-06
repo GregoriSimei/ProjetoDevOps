@@ -27,7 +27,7 @@ export class ProdutoService {
     return this.http.get<Produto>(`${this.buscarURL}/${cnpjFarmacia}/${codProduto}`);
   }
 
-  listar(cnpj: Number): Observable<Produto[]> {
+  listar(cnpj: string): Observable<Produto[]> {
     return this.http.get<Produto[]>(this.listarURL + "/" + cnpj);
   }
 

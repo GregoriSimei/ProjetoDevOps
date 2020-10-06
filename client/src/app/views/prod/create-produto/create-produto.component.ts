@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Produto } from 'src/app/models/Produto';
 
 @Component({
   selector: 'app-create-produto',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateProdutoComponent implements OnInit {
 
-  constructor() { }
+  cnpj: String;
+  produto: Produto;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => this.cnpj = params['cnpj']);
+    this.produto.cnpjFarmacia = this.cnpj;
   }
 
 }
