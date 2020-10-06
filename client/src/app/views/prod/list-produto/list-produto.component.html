@@ -1,1 +1,20 @@
-<p>list-produto works!</p>
+<p>Produtos da farmacia: </p>
+<button (click)="cadastrar()">Cadastrar Produto</button>
+<table>
+    <tr>
+        <th>Codigo</th>
+        <th>Nome</th>
+        <th>Preco</th>
+        <th>Descricao</th>
+        <th>Data Criacao</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let produto of produtos">
+        <td>{{produto.codigo}}</td>
+        <td>{{produto.nome}}</td>
+        <td>{{produto.preco}}</td>
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.criadoEm}}</td>
+        <td><a routerLink="farma/{{cnpj}}/produto/{{produto.codigo}}">Alterar</a></td>
+    </tr>
+</table>
