@@ -25,6 +25,7 @@ export class ListProdutoComponent implements OnInit {
     this.route.params.subscribe(params => this.cnpjFarmacia = params['cnpj']);
     this.serviceProd.listar(this.cnpjFarmacia).subscribe((lista) => {
       this.produtos = lista;
+      console.log(lista);
     });
     this.serviceFarma.buscar({ nome: "", cnpj: this.cnpjFarmacia }).subscribe((farma) => {
       this.farmacia = farma;

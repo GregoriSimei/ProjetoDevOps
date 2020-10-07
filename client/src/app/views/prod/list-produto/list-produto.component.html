@@ -16,7 +16,7 @@
         <td>{{produto.preco}}</td>
         <td>{{produto.descricao}}</td>
         <td>{{produto.criadoEm}}</td>
-        <td><a routerLink="farma/{{cnpj}}/produto/{{produto.codigo}}">Alterar</a></td>
+        <td><a routerLink="./{{produto.codigo}}/atualizar">Alterar</a></td>
         <td><button (click)="removerProduto(produto)">Deletar</button></td>
     </tr>
 </table>
