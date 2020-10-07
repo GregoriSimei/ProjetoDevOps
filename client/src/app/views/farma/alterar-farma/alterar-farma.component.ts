@@ -21,8 +21,12 @@ export class AlterarFarmaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.farmaService.buscar(this.farma).subscribe((farma) => {
+      console.log(farma);
+      this.farma = farma;
     
-      }
+      });
+    }
   
   alterar(): void {
     this.farmaService.alterar(this.farma).subscribe((farma => {
