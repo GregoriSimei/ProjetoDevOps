@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Produto } from '../models/Produto';
 import { Observable } from 'rxjs';
-import { Farmacia } from '../models/Farmacia';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +34,11 @@ export class ProdutoService {
     return this.http.post<Produto>(this.alterarURL, produto);
   }
 
-  remover(produto: Produto) {
+  remover(produto: Produto): void {
     var cnpjFarmacia = produto.cnpjFarmacia;
     var codProduto = produto.codigo;
-    this.http.get<Produto>(`${this.removerURL}/${cnpjFarmacia}/${codProduto}`);
+    var site = `${this.removerURL}/${cnpjFarmacia}/${codProduto}`;
+    this.http.get(site).subscribe((resp) => { });
   }
 
 }

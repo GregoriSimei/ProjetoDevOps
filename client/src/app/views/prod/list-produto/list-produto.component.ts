@@ -12,12 +12,22 @@ import { ProdutoService } from '../../../services/produto.service';
 })
 export class ListProdutoComponent implements OnInit {
 
-  cnpjFarmacia: string;
+  produtoPesquisa: Produto = {
+    codigo: "",
+    nome: "",
+    descricao: "",
+    preco: 0.0,
+    cnpjFarmacia: ""
+  };
+
   farmacia: Farmacia = {
     nome: "",
     cnpj: ""
   };
+
+  cnpjFarmacia: string;
   produtos: Produto[] = [];
+  produtosGuardados: Produto[] = null;
 
   constructor(private router: Router, private route: ActivatedRoute, private serviceProd: ProdutoService, private serviceFarma: FarmaService) { }
 
@@ -25,7 +35,6 @@ export class ListProdutoComponent implements OnInit {
     this.route.params.subscribe(params => this.cnpjFarmacia = params['cnpj']);
     this.serviceProd.listar(this.cnpjFarmacia).subscribe((lista) => {
       this.produtos = lista;
-      console.log(lista);
     });
     this.serviceFarma.buscar({ nome: "", cnpj: this.cnpjFarmacia }).subscribe((farma) => {
       this.farmacia = farma;
@@ -38,6 +47,24 @@ export class ListProdutoComponent implements OnInit {
 
   removerProduto(produto: Produto) {
     this.serviceProd.remover(produto);
+  }
+
+  pesquisarProduto() {
+    this.produtoPesquisa.cnpjFarmacia = this.cnpjFarmacia;
+
+    if (this.produtosGuardados == null) {
+      this.produtosGuardados = this.produtos;
+    }
+
+    if (this.produtoPesquisa.codigo != "") {
+      this.serviceProd.buscar(this.produtoPesquisa).subscribe((produto) => {
+        this.produtos = [];
+        this.produtos.push(produto);
+      });
+    }
+    else {
+      this.produtos = this.produtosGuardados;
+    }
   }
 
 }

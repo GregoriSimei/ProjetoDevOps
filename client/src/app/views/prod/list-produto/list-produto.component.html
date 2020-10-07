@@ -1,4 +1,7 @@
 <p>Produtos da farmacia: {{farmacia.nome | uppercase}}</p>
+<input type="text" name="codigo" placeholder="codigo do produto" [(ngModel)]="produtoPesquisa.codigo">
+<button (click)="pesquisarProduto()">Pesquisar</button>
+<br>
 <button (click)="cadastrarProduto()">Cadastrar Produto</button>
 <table>
     <tr>
