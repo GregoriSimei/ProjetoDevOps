@@ -1,3 +1,4 @@
+import { RemoverFarmaComponent } from './views/farma/remover-farma/remover-farma.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'farma/alterar/:cnpj',
     component: AlterarFarmaComponent
+  },
+  {
+    path: 'farma/remover/:cnpj',
+    component: RemoverFarmaComponent
   },
   {
     path: 'farma/:cnpj/produto',
