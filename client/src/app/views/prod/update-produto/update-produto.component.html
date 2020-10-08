@@ -1,28 +1,19 @@
-
-<input 
-    type="text" 
-    placeholder="Nome do Produto"
-    name="nome"
-    [(ngModel)]="produto.nome"
-/>
-
-<input 
-    type="text" 
-    placeholder="Codigo do Produto"
-    name="codigo"
-    [(ngModel)]="produto.codigo"
-/>
-<input 
-    type="number" 
-    placeholder="Preço do Produto"
-    name="preco"
-    [(ngModel)]="produto.preco"
-/>
-<input 
-    type="text" 
-    placeholder="Descrição do Produto"
-    name="descricao"
-    [(ngModel)]="produto.descricao"
-/>
-
-<button (click)="alterar()">Alterar</button>
+<div class="cadastro">
+    <div class="tltCad">
+        <h3>Cadastro de Produtos</h3>
+    </div>
+    <div class="itens">
+        <label>Nome:</label>
+        <input type="text" placeholder="Nome do Produto" name="nome" [(ngModel)]="produto.nome" />
+        <label>Codigo:</label>
+        <input type="text" placeholder="Codigo do Produto" name="codigo" [(ngModel)]="produto.codigo" readonly />
+        <label>Preco:</label>
+        <input type="number" step="0.01" min="0" placeholder="Preço do Produto" name="preco"
+            [(ngModel)]="produto.preco" />
+        <label>Descricao: </label>
+        <input type="text" placeholder="Descrição do Produto" name="descricao" [(ngModel)]="produto.descricao" />
+    </div>
+    <div class="botoes">
+        <button class="btn btnAlterar" (click)="alterar()">Alterar</button>
+    </div>
+</div>
