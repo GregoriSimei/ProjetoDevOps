@@ -10,11 +10,15 @@ import { Router } from "@angular/router";
   styleUrls: ["./list-farma.component.css"],
 })
 export class ListFarmaComponent implements OnInit {
-  
+
+  farmaPesquisa: Farmacia = {
+    cnpj: "",
+    nome: ""
+  };
   farmas: Farmacia[] = [];
 
-  constructor(private router: Router, private farmaService: FarmaService) {}
-  
+  constructor(private router: Router, private farmaService: FarmaService) { }
+
   ngOnInit(): void {
     this.farmaService.list().subscribe((lista) => {
       console.log(lista);
@@ -24,6 +28,18 @@ export class ListFarmaComponent implements OnInit {
 
   navigateToCreateFarma(): void {
     this.router.navigate(['farma/create']);
+  }
+
+  pesquisarFarma() {
+    this.router.navigate(["farma/buscar/" + this.farmaPesquisa.cnpj]);
+  }
+
+  alterarFarma(farma: Farmacia) {
+    this.router.navigate(["farma/alterar/" + farma.cnpj]);
+  }
+
+  removerFarma(farma: Farmacia) {
+    this.router.navigate(["farma/remover/" + farma.cnpj]);
   }
 
 }

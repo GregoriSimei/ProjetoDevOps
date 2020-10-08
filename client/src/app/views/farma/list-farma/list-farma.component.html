@@ -1,27 +1,37 @@
-<h1>Farmacias</h1>
-
-<table>
-  <tr>
-    <th>#</th>
-    <th>Nome Farmacia</th>
-    <th>Data do cadastro</th>
-    <th>Criado em</th>
-    <th></th>
-  </tr>
-  <tr *ngFor="let farma of farmas">
-    <td>{{farma._id}}</td>
-    <td><a routerLink="farma/{{farma.cnpj}}/produto">{{farma.nome}}</a></td>
-    <td>{{farma.cnpj}}</td>
-    <td>{{farma.criadoEm | date: "dd/MM/yyyy hh:mm"}}</td>
-    <td>
-      <a routerLink="farma/alterar/{{farma.cnpj}}">Alterar</a>
-    </td>
-    <td>
-      <a routerLink="farma/remover/{{farma.cnpj}}">Remover</a>
-    </td>
-  </tr>
-</table>
-
-<button (click)="navigateToCreateFarma()">
-  Cadastrar Farmácia
-</button>
+<div class="visaoAdm">
+  <div class="titulo">
+    <p><b id="tltInicio">Lista de Farmacias </b></p>
+  </div>
+  <div class="headerAdm">
+    <input class="pesquisa" type="text" name="codigo" placeholder="codigo da farmacia" [(ngModel)]="farmaPesquisa.cnpj">
+    <button class="btn btnPesquisa" (click)="pesquisarFarma()">Pesquisar</button>
+    <button class="btn btnCadastro" (click)="navigateToCreateFarma()">Cadastrar Farmacia</button>
+  </div>
+  <div>
+    <table class="conteudo" cellspacing=0>
+      <tr>
+        <th>CNPJ</th>
+        <th>NOME</th>
+        <th>CRIADO EM</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr class="conteudos" *ngFor="let farma of farmas">
+        <td>{{farma.cnpj}}</td>
+        <td id="nome"><a routerLink="farma/{{farma.cnpj}}/produto">{{farma.nome}}</a></td>
+        <td>{{farma.criadoEm | date: "dd/MM/yyyy hh:mm"}}</td>
+        <td>
+          <button class="btn btnAlterar" (click)="alterarFarma(farma)">
+            Alterar
+          </button>
+        </td>
+        <td>
+          <button class="btn btnDeletar" onclick="return confirm('Deseja excluir a farmacia?')"
+            (click)="removerFarma(farma)">
+            Deletar
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
