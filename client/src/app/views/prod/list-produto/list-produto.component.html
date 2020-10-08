@@ -1,25 +1,44 @@
-<p>Produtos da farmacia: {{farmacia.nome | uppercase}}</p>
-<input type="text" name="codigo" placeholder="codigo do produto" [(ngModel)]="produtoPesquisa.codigo">
-<button (click)="pesquisarProduto()">Pesquisar</button>
-<br>
-<button (click)="cadastrarProduto()">Cadastrar Produto</button>
-<table>
-    <tr>
-        <th>Codigo</th>
-        <th>Nome</th>
-        <th>Preco</th>
-        <th>Descricao</th>
-        <th>Data Criacao</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr *ngFor="let produto of produtos">
-        <td>{{produto.codigo}}</td>
-        <td>{{produto.nome}}</td>
-        <td>{{produto.preco}}</td>
-        <td>{{produto.descricao}}</td>
-        <td>{{produto.criadoEm}}</td>
-        <td><a routerLink="./{{produto.codigo}}/atualizar">Alterar</a></td>
-        <td><button (click)="removerProduto(produto)">Deletar</button></td>
-    </tr>
-</table>
+<div class="visaoAdm">
+    <div class="titulo">
+        <p><b id="tltInicio">Produtos da farmacia: </b><b id="tltNome">{{farmacia.nome | uppercase}}</b></p>
+    </div>
+    <div class="headerAdm">
+        <input class="pesquisa" type="text" name="codigo" placeholder="codigo do produto"
+            [(ngModel)]="produtoPesquisa.codigo">
+        <button class="btn btnPesquisa" (click)="pesquisarProduto()">Pesquisar</button>
+        <button class="btn btnCadastro" (click)="cadastrarProduto()">Cadastrar Produto</button>
+    </div>
+    <div>
+        <table class="conteudo" cellspacing=0>
+            <tr>
+                <th>CODIGO</th>
+                <th>NOME</th>
+                <th>PRECO</th>
+                <th>DESCRIÇÃO</th>
+                <th>CRIADO EM</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr class="conteudos" *ngFor="let produto of produtos">
+                <td>{{produto.codigo}}</td>
+                <td id="nome">
+                    <b>{{produto.nome}}</b>
+                </td>
+                <td id="preco">R$ {{produto.preco}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.criadoEm}}</td>
+                <td>
+                    <button class="btn btnAlterar" (click)="alterarProduto(produto)">
+                        Alterar
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btnDeletar" onclick="return confirm('Deseja excluir o produto?')"
+                        (click)="removerProduto(produto)">
+                        Deletar
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

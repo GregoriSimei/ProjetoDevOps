@@ -46,6 +46,7 @@ export class ListProdutoComponent implements OnInit {
   }
 
   removerProduto(produto: Produto) {
+    this.produtos.splice(this.produtos.indexOf(produto), 1);
     this.serviceProd.remover(produto);
   }
 
@@ -65,6 +66,10 @@ export class ListProdutoComponent implements OnInit {
     else {
       this.produtos = this.produtosGuardados;
     }
+  }
+
+  alterarProduto(produto: Produto) {
+    this.router.navigate(['farma/' + produto.cnpjFarmacia + "/produto/" + produto.codigo + "/atualizar"]);
   }
 
 }
