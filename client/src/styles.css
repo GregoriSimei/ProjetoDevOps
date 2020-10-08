@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+/* BOTOES */
+/* Padrao para utilizar nos botoes */
+.btn{
+    height: 30px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 7px;
+}
+
+/* Botao Alterar*/
+.btnAlterar{
+    color: white;
+    background-color: rgb(255, 165, 0, 0.7);
+    transition: 0.5;
+}
+
+.btnAlterar:hover{
+    background-color: rgb(255, 165, 0, 1);
+}
+
+/* Botao deletar */
+.btnDeletar {
+    color : rgb(255, 255, 255);
+    background-color: rgb(220, 20, 60, 0.7);
+    transition: 0.5s;
+}
+
+.btnDeletar:hover{
+    background-color: rgb(220, 20, 60, 1);;
+}
+
+/* Botao de pesquisa */
+.btnPesquisa{
+    color: white;
+    background-color: rgba(63, 98, 194, 0.6);
+    transition: 0.5;
+}
+.btnPesquisa:hover{
+    background-color: rgb(63, 98, 194);
+}
+
+/* Botao de cadastro */
+.btnCadastro{
+    color: white;
+    background-color: rgba(60, 179, 113, 0.6);
+    transition: 0.5;
+}
+
+.btnCadastro:hover{
+    background-color: rgb(60, 179, 113);
+}
+
+
+/* ESTILO DA PAGINA */
+/* tabela das pagians */
+.conteudo th{
+    color: rgb(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgb(60, 179, 113);
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+}
+
+.conteudo tr{
+
+}
+
+.conteudos:hover {
+    background-color: #f5f5f5;
+}
+
+.conteudos td{
+    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+    padding: 5px;
+}
+
+.conteudos #preco{
+    text-align: center;
+}
+
+.conteudos #nome{
+    text-transform: uppercase;
+}
+
+/* titulos */
+.titulo{
+    font-size: 30px;
+    text-align: center;
+}
+
+.titulo #tltInicio{
+    color: rgb(0, 0, 0, 0.4);
+    size: 100px;
+}
+
+.titulo #tltNome{
+    color: rgb(60, 179, 113);
+}
+
+/*headers para pesquisa e criacao */
+.headerAdm {
+    padding: 5px;
+}
