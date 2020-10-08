@@ -1,15 +1,14 @@
-<input 
-    type="text" 
-    placeholder="Nome da Farmácia"
-    name="nome"
-    [(ngModel)]="farma.nome"
-/>
-
-<input 
-    type="text" 
-    placeholder="CNPJ da Farmácia"
-    name="cnpj"
-    [(ngModel)]="farma.cnpj"
-/>
-
-<button (click)="create()">Cadastrar</button>
+<div class="cadastro">
+    <div class="tltCad">
+        <h3>Cadastro de Farmácias</h3>
+    </div>
+    <div class="itens">
+        <label>Nome:</label>
+        <input type="text" placeholder="Nome da Farmacia" name="nome" [(ngModel)]="farma.nome" />
+        <label>CNPJ:</label>
+        <input type="text" placeholder="CNPJ da Farmacia" name="codigo" [(ngModel)]="farma.cnpj" />
+    </div>
+    <div class="botoes">
+        <button class="btn btnCadastro" (click)="create()">Cadastrar</button>
+    </div>
+</div>
