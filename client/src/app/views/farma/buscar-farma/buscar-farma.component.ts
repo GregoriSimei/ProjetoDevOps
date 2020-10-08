@@ -1,7 +1,8 @@
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Farmacia } from "src/app/models/Farmacia";
 import { FarmaService } from 'src/app/services/farma.service';
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-buscar-farma',
@@ -17,7 +18,9 @@ export class BuscarFarmaComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private farmaService: FarmaService) {}
+  constructor(private router: ActivatedRoute,private router2: Router, private farmaService: FarmaService) {
+    this.router.params.subscribe(params => this.farma.cnpj = params['cnpj']);
+  }
 
   buscar(): void {
     this.farmaService.buscar(this.farma).subscribe((farma) => {
@@ -26,15 +29,19 @@ export class BuscarFarmaComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.farmaService.buscar(this.farma).subscribe((farma) => {
+      console.log(farma);
+      this.farma = farma;
     
-  }
+      });
+    }
 
   navigateToUpdateFarma(): void {
-    this.router.navigate(['farma/alterar/'+this.farma.cnpj]);
+    this.router2.navigate(['farma/alterar/'+this.farma.cnpj]);
   }
 
   navigateToRemoveFarma(): void {
-    this.router.navigate(['farma/remover/'+this.farma.cnpj]);
+    this.router2.navigate(['farma/remover/'+this.farma.cnpj]);
   }
 
 }

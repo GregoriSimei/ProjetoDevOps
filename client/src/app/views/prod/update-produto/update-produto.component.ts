@@ -10,7 +10,6 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class UpdateProdutoComponent implements OnInit {
   
-  cnpj: String;
   produto: Produto = {
     nome: "",
     codigo: "",
@@ -19,12 +18,19 @@ export class UpdateProdutoComponent implements OnInit {
     cnpjFarmacia: ""
   };
 
-  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) { }
+  constructor(private produtoService: ProdutoService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => this.produto.codigo = params['codigo']);
+    this.route.params.subscribe(params => this.produto.cnpjFarmacia = params['cnpj']);
+   }
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => this.cnpj = params['cnpj']);
-    this.produto.cnpjFarmacia = this.cnpj;
-  }
+   ngOnInit(): void {
+     console.log(this.produto.codigo);
+     console.log(this.produto.cnpjFarmacia);
+    this.produtoService.buscar(this.produto).subscribe((produto) => {
+      this.produto = produto;
+    
+      });
+    }
   
   alterar(): void {
     this.produtoService.alterar(this.produto).subscribe((produto => {

@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class ProdutoService {
 
-  cadastrarURL = 'http://localhost:1234/produto/cadastrar';  /*   POST - Produto  */
-  buscarURL = 'http://localhost:1234/produto/buscar';       /*   /:cnpjFarmacia/:codigo - GET */
-  listarURL = 'http://localhost:1234/produto/listar';       /*   /:cnpjFarmacia - GET  */
-  alterarURL = 'http://localhost:1234/produto/alterar';    /*   POST - Produto  */
-  removerURL = 'http://localhost:1234/produto/remover';     /*   /:cnpjFarmacia/:codigo - GET */
+  cadastrarURL = 'http://localhost:1234/produto/cadastrar'; 
+  buscarURL = 'http://localhost:1234/produto/buscar';       
+  listarURL = 'http://localhost:1234/produto/listar';      
+  alterarURL = 'http://localhost:1234/produto/alterar';    
+  removerURL = 'http://localhost:1234/produto/remover';    
 
   constructor(private http: HttpClient) { }
 
