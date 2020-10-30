@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NavComponent } from './components/template/nav/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  nome = 'MedsOn';
+
+  @ViewChild(NavComponent, { static: false })
+  filho: NavComponent;
+
+  abrirMenu(valor) {
+    this.filho.open = valor;
+  }
+
 }

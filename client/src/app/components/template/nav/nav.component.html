@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="open" fixedInViewport="true" fixedTopGap="65">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/">
+                <span class="material-icons">
+                    home
+                </span>
+                Farmacias
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="conteudo">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -11,9 +11,20 @@ import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.co
 import { ListProdutoComponent } from './views/prod/list-produto/list-produto.component';
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
-import { BuscarFarmaComponent } from './views/farma/buscar-farma/buscar-farma.component';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
-import { RemoverFarmaComponent } from './views/farma/remover-farma/remover-farma.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { HeaderComponent } from './components/template/header/header.component';
+import { NavComponent } from './components/template/nav/nav.component';
+
+// Material Angular
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,15 +34,24 @@ import { RemoverFarmaComponent } from './views/farma/remover-farma/remover-farma
     ListProdutoComponent,
     CreateProdutoComponent,
     UpdateProdutoComponent,
-    BuscarFarmaComponent,
     AlterarFarmaComponent,
-    RemoverFarmaComponent
+    FooterComponent,
+    HeaderComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

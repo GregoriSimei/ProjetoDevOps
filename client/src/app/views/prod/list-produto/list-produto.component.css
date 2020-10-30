@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+full-width {
+  width: 100%;
+}
+
+.btnReturn{
+  border: none;
+  padding: 5px;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(000, 000, 000, 0.0);
+  transition: 0.5s;
+}
+
+.btnReturn:hover{
+  background-color:  rgba(000, 000, 000, 0.1);
+}

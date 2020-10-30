@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from 'src/app/models/Produto';
 import { ProdutoService } from 'src/app/services/produto.service';
 
@@ -20,7 +20,7 @@ export class CreateProdutoComponent implements OnInit {
   };
 
 
-  constructor(private route: ActivatedRoute,private service: ProdutoService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: ProdutoService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.cnpj = params['cnpj']);
@@ -28,9 +28,11 @@ export class CreateProdutoComponent implements OnInit {
   }
   cadastrar() {
     console.log(this.produto);
-    this.service.cadastrar(this.produto).subscribe((produto) => {
-      console.log(produto);
-    });
+    this.service.cadastrar(this.produto).subscribe((produto) => { });
+  }
+
+  retornarProdutos() {
+    this.router.navigate(['farma/' + this.produto.cnpjFarmacia + '/produto']);
   }
 
 }

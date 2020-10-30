@@ -1,37 +1,62 @@
-<div class="visaoAdm">
+<div class="conteudoPag">
   <div class="titulo">
-    <p><b id="tltInicio">Lista de Farmacias </b></p>
-  </div>
-  <div class="headerAdm">
-    <input class="pesquisa" type="text" name="codigo" placeholder="codigo da farmacia" [(ngModel)]="farmaPesquisa.cnpj">
-    <button class="btn btnPesquisa" (click)="pesquisarFarma()">Pesquisar</button>
-    <button class="btn btnCadastro" (click)="navigateToCreateFarma()">Cadastrar Farmacia</button>
+      <p><b id="tltInicio">Farmacias: </b></p>
+      <p><button class="btn btnCadastro" (click)="navigateToCreateFarma()">Cadastrar Farmacia</button></p>
   </div>
   <div>
-    <table class="conteudo" cellspacing=0>
-      <tr>
-        <th>CNPJ</th>
-        <th>NOME</th>
-        <th>CRIADO EM</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr class="conteudos" *ngFor="let farma of farmas">
-        <td>{{farma.cnpj}}</td>
-        <td id="nome"><a routerLink="farma/{{farma.cnpj}}/produto">{{farma.nome}}</a></td>
-        <td>{{farma.criadoEm | date: "dd/MM/yyyy hh:mm"}}</td>
-        <td>
-          <button class="btn btnAlterar" (click)="alterarFarma(farma)">
-            Alterar
-          </button>
-        </td>
-        <td>
-          <button class="btn btnDeletar" onclick="return confirm('Deseja excluir a farmacia?')"
-            (click)="removerFarma(farma)">
-            Deletar
-          </button>
-        </td>
-      </tr>
-    </table>
+      <mat-form-field class="full-width">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="aplicarFiltro($event)" placeholder="Ex. Master Mais" #input>
+      </mat-form-field>
   </div>
-</div>
+  <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+      
+          <ng-container matColumnDef="cnpj">
+            <th mat-header-cell *matHeaderCellDef> Cod. </th>
+            <td mat-cell *matCellDef="let farma"> {{farma.cnpj}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let farma"><a routerLink="farma/{{farma.cnpj}}/produto">{{farma.nome}}</a></td>
+          </ng-container>
+          
+          <ng-container matColumnDef="criado em">
+            <th mat-header-cell *matHeaderCellDef> Preco </th>
+            <td mat-cell *matCellDef="let farma"> R$ {{farma.criadoEm}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="criacao">
+              <th mat-header-cell *matHeaderCellDef> Criado Em </th>
+              <td mat-cell *matCellDef="let farma"> {{farma.criadoEm}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="alterar">
+              <th mat-header-cell *matHeaderCellDef> Alterar </th>
+              <td mat-cell *matCellDef="let farma">
+                  <button class="btn btnAlterar" (click)="alterarFarma(farma)">
+                      Alterar
+                  </button>
+              </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="deletar">
+              <th mat-header-cell *matHeaderCellDef> Deletar </th>
+              <td mat-cell *matCellDef="let farma">
+                  <button class="btn btnDeletar" onclick="return confirm('Deseja excluir o farma?')"
+                  (click)="removerFarma(farma)">
+                      Deletar
+                  </button>
+              </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">Nada encontrado com o conteudo:  "{{input.value}}"</td>
+          </tr>
+        </table>
+  </div>
+</div> 

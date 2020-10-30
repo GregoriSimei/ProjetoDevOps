@@ -2,6 +2,7 @@ import { Farmacia } from './../../../models/Farmacia';
 import { FarmaService } from './../../../services/farma.service';
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -11,18 +12,17 @@ import { Router } from "@angular/router";
 })
 export class ListFarmaComponent implements OnInit {
 
-  farmaPesquisa: Farmacia = {
-    cnpj: "",
-    nome: ""
-  };
+  dataSource;
+  displayedColumns: string[] = ['cnpj', 'nome', 'criado em', 'alterar', 'deletar'];
+
   farmas: Farmacia[] = [];
 
   constructor(private router: Router, private farmaService: FarmaService) { }
 
   ngOnInit(): void {
     this.farmaService.list().subscribe((lista) => {
-      console.log(lista);
       this.farmas = lista;
+      this.dataSource = new MatTableDataSource(this.farmas);
     });
   }
 
@@ -30,16 +30,19 @@ export class ListFarmaComponent implements OnInit {
     this.router.navigate(['farma/create']);
   }
 
-  pesquisarFarma() {
-    this.router.navigate(["farma/buscar/" + this.farmaPesquisa.cnpj]);
-  }
-
   alterarFarma(farma: Farmacia) {
     this.router.navigate(["farma/alterar/" + farma.cnpj]);
   }
 
   removerFarma(farma: Farmacia) {
-    this.router.navigate(["farma/remover/" + farma.cnpj]);
+    this.farmas.splice(this.farmas.indexOf(farma), 1);
+    this.dataSource = new MatTableDataSource(this.farmas);
+    this.farmaService.remover(farma).subscribe((farma) => { });
+  }
+
+  aplicarFiltro(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

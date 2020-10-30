@@ -1,44 +1,77 @@
-<div class="visaoAdm">
+<div class="conteudoPag">
     <div class="titulo">
-        <p><b id="tltInicio">Produtos da farmacia: </b><b id="tltNome">{{farmacia.nome | uppercase}}</b></p>
-    </div>
-    <div class="headerAdm">
-        <input class="pesquisa" type="text" name="codigo" placeholder="codigo do produto"
-            [(ngModel)]="produtoPesquisa.codigo">
-        <button class="btn btnPesquisa" (click)="pesquisarProduto()">Pesquisar</button>
-        <button class="btn btnCadastro" (click)="cadastrarProduto()">Cadastrar Produto</button>
+        <p>
+            <button class="btnReturn" (click)="retornarHome()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+        </p>
+        <p>
+            <b id="tltInicio">Produtos da farmacia: </b><b id="tltNome">{{farmacia.nome | uppercase}}</b>
+        </p>
+        <p>
+            <button class="btn btnCadastro" (click)="cadastrarProduto()">Cadastrar Produto</button>
+        </p>
     </div>
     <div>
-        <table class="conteudo" cellspacing=0>
-            <tr>
-                <th>CODIGO</th>
-                <th>NOME</th>
-                <th>PRECO</th>
-                <th>DESCRIÇÃO</th>
-                <th>CRIADO EM</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="conteudos" *ngFor="let produto of produtos">
-                <td>{{produto.codigo}}</td>
-                <td id="nome">
-                    <b>{{produto.nome}}</b>
-                </td>
-                <td id="preco">R$ {{produto.preco}}</td>
-                <td>{{produto.descricao}}</td>
-                <td>{{produto.criadoEm}}</td>
-                <td>
+        <mat-form-field class="full-width">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="aplicarFiltro($event)" placeholder="Ex. aspirina" #input>
+        </mat-form-field>
+    </div>
+    <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+        
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef> Cod. </th>
+              <td mat-cell *matCellDef="let produto"> {{produto.codigo}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef> Nome </th>
+              <td mat-cell *matCellDef="let produto"> {{produto.nome}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="preco">
+              <th mat-header-cell *matHeaderCellDef> Preco </th>
+              <td mat-cell *matCellDef="let produto"> R$ {{produto.preco}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="descricao">
+                <th mat-header-cell *matHeaderCellDef> Descricao </th>
+                <td mat-cell *matCellDef="let produto"> {{produto.descricao}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="criacao">
+                <th mat-header-cell *matHeaderCellDef> Criado Em </th>
+                <td mat-cell *matCellDef="let produto"> {{produto.criadoEm}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="alterar">
+                <th mat-header-cell *matHeaderCellDef> Alterar </th>
+                <td mat-cell *matCellDef="let produto">
                     <button class="btn btnAlterar" (click)="alterarProduto(produto)">
                         Alterar
                     </button>
                 </td>
-                <td>
+            </ng-container>
+        
+            <ng-container matColumnDef="deletar">
+                <th mat-header-cell *matHeaderCellDef> Deletar </th>
+                <td mat-cell *matCellDef="let produto">
                     <button class="btn btnDeletar" onclick="return confirm('Deseja excluir o produto?')"
                         (click)="removerProduto(produto)">
                         Deletar
                     </button>
                 </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nenhum produto encontrado : {{input.value}}</td>
             </tr>
-        </table>
+          </table>
     </div>
 </div>
+

@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Farmacia } from "src/app/models/Farmacia";
 import { FarmaService } from 'src/app/services/farma.service';
@@ -16,22 +16,25 @@ export class AlterarFarmaComponent implements OnInit {
     cnpj: ""
   };
 
-  constructor(private router: ActivatedRoute, private farmaService: FarmaService) { 
-    this.router.params.subscribe(params => this.farma.cnpj = params['cnpj']);
+  constructor(private router: Router, private route: ActivatedRoute, private farmaService: FarmaService) {
+    this.route.params.subscribe(params => this.farma.cnpj = params['cnpj']);
   }
 
   ngOnInit(): void {
     this.farmaService.buscar(this.farma).subscribe((farma) => {
       console.log(farma);
       this.farma = farma;
-    
-      });
-    }
-  
+
+    });
+  }
+
   alterar(): void {
     this.farmaService.alterar(this.farma).subscribe((farma => {
       console.log(farma);
     }));
+  }
 
+  retornarFarmacias() {
+    this.router.navigate(['']);
   }
 }

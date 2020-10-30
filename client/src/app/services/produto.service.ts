@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class ProdutoService {
 
-  cadastrarURL = 'http://localhost:1234/produto/cadastrar'; 
-  buscarURL = 'http://localhost:1234/produto/buscar';       
-  listarURL = 'http://localhost:1234/produto/listar';      
-  alterarURL = 'http://localhost:1234/produto/alterar';    
-  removerURL = 'http://localhost:1234/produto/remover';    
+  cadastrarURL = 'http://192.168.15.5:1234/produto/cadastrar';
+  buscarURL = 'http://192.168.15.5:1234/produto/buscar';
+  listarURL = 'http://192.168.15.5:1234/produto/listar';
+  alterarURL = 'http://192.168.15.5:1234/produto/alterar';
+  removerURL = 'http://192.168.15.5:1234/produto/remover';
 
   constructor(private http: HttpClient) { }
 

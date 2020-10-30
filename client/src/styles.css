@@ -50,104 +50,23 @@
     background-color: rgb(60, 179, 113);
 }
 
-
-/* ESTILO DA PAGINA DE LISTAS */
-/* tabela das pagians */
-.conteudo th{
-    color: rgb(0, 0, 0, 0.4);
-    border-bottom: 1px solid rgb(60, 179, 113);
-    text-align: center;
-    padding: 5px 10px 5px 10px;
-}
-
-.conteudo tr{
-
-}
-
-.conteudos:hover {
-    background-color: #f5f5f5;
-}
-
-.conteudos td{
-    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
-    padding: 5px;
-}
-
-.conteudos #preco{
-    text-align: center;
-}
-
-.conteudos #nome{
-    text-transform: uppercase;
-}
-
-/* titulos */
-.titulo{
-    font-size: 30px;
-    text-align: center;
-}
-
-.titulo #tltInicio{
-    color: rgb(0, 0, 0, 0.4);
-    size: 100px;
-}
-
-.titulo #tltNome{
-    color: rgb(60, 179, 113);
-}
-
-/*headers para pesquisa e criacao */
-.headerAdm {
-    padding: 5px;
-}
-
-
-/* ESTILO DAS PAGINAS DE CADASTRO */
-.cadastro{
-    display: flex;
-    flex-direction: column;
-    padding: 100px;
-    border: 1px solid rgba(0, 0, 0, 0.267);
-    border-radius: 10px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.4);
-	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.4);
-	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.4);
-}
-
-.cadastro .tltCad{
-    color:  rgb(0, 0, 0, 0.7);
-}
-
-.cadastro label{
-    color:  rgb(0, 0, 0, 0.7);
-}
-
-.cadastro input{
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+.btnReturn{
     border: none;
-    border-bottom: 1px solid rgba(29, 142, 248, 0.3);
+    padding: 5px;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(000, 000, 000, 0.0);
     transition: 0.5s;
 }
 
-.cadastro input:hover{
-    border-bottom: 1px solid rgba(29, 142, 248, 1);
+.btnReturn:hover{
+    background-color:  rgba(000, 000, 000, 0.1);
 }
 
-.cadastro .itens{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.cadastro .botoes{
-    margin: 0 auto;
-}
+html, body { height: 100%; }
 
 body{
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
