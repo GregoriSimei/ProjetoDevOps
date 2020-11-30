@@ -11,7 +11,7 @@ const farmaciaSchema = new mongoose.Schema({
     required: [true, "O campo cnpj é obrigatório"],
   },
   criadoEm: { type: Date, default: Date.now },
-  usuarioID: {
+  usuarioId: {
     type: String,
     required: [true]
   },

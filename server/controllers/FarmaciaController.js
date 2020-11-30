@@ -24,7 +24,8 @@ class FarmaciaController {
     }
 
     async getByUser(req, res) {
-        var result = await Farmacia.findOne({ usuarioID: req.userId });
+        console.log(req.userId);
+        var result = await Farmacia.findOne({ usuarioId: req.userId });
         res.status(200).json(result);
     }
 
