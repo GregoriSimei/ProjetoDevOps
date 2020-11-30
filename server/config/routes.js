@@ -16,7 +16,7 @@ router.delete("/farmacia/remover/:cnpj", farmaciaController.delete);
 
 router.get("/farmacia/:cnpj/produto/:codigo", FarmaciaController.findProduto);
 router.post("/farmacia/:cnpj/produto", FarmaciaController.storeProduto);
-router.delete("/farmacia/:cnpj/produto", FarmaciaController.deleteProduto);
+router.post("/farmacia/:cnpj/produto/deletar", FarmaciaController.deleteProduto);
 router.put("/farmacia/:cnpj/produto", FarmaciaController.updateProduto);
 
 router.post("/compra", CompraController.store);

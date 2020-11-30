@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProdutoService {
 
-  BaseURL = 'http://192.168.15.5:1234/api/farmacia';
+  BaseURL = 'http://localhost:1234/api/farmacia';
 
 
   constructor(private http: HttpClient) { }
@@ -41,8 +41,8 @@ export class ProdutoService {
   remover(produto: Produto, cnpj: string): void {
     var headers = new HttpHeaders();
     headers = this.criarAutorizacao(headers);
-    var site = `${this.BaseURL}/${cnpj}/produto`;
-    this.http.get(site, { headers: headers }).subscribe((resp) => { });
+    var site = `${this.BaseURL}/${cnpj}/produto/deletar`;
+    this.http.post(site, produto, { headers: headers }).subscribe((resp) => { });
   }
 
 }

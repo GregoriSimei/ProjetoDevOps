@@ -25,7 +25,6 @@ export class CreateProdutoComponent implements OnInit {
     this.route.params.subscribe(params => this.cnpj = params['cnpj']);
   }
   cadastrar() {
-    console.log(this.produto);
     this.service.cadastrar(this.produto, this.cnpj).subscribe((produto) => { });
   }
 

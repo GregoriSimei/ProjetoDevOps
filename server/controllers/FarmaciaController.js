@@ -24,7 +24,6 @@ class FarmaciaController {
     }
 
     async getByUser(req, res) {
-        console.log(req.userId);
         var result = await Farmacia.findOne({ usuarioId: req.userId });
         res.status(200).json(result);
     }
@@ -102,7 +101,7 @@ class FarmaciaController {
         var cnpj = req.params.cnpj;
 
         var farmacia = await Farmacia.findOne({ cnpj: cnpj });
-        var prodEncontrado = farmacia.produtos.find(prod => prod.codigo === produto.codigo);
+        var prodEncontrado = farmacia.produtos.find(prod => prod.codigo === codigo);
 
         if (prodEncontrado != undefined)
             return res.status(200).json(prodEncontrado);
