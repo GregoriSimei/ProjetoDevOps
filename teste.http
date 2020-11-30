@@ -1,0 +1,14 @@
+###
+POST http://localhost:1234/produto/cadastrar
+Content-Type: application/json
+
+{
+    "nome" : "Bolacha",
+    "codigo": "123987",
+    "preco": 3.00,
+    "descricao": "Nao e biscoito",
+    "cnpjFarmacia": "555" 
+}
+
+###
+GET http://localhost:1234/produto/remover/555/123456

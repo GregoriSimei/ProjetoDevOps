@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Produto } from '../models/Produto';
 import { Observable } from 'rxjs';
 
@@ -8,37 +8,41 @@ import { Observable } from 'rxjs';
 })
 export class ProdutoService {
 
-  cadastrarURL = 'http://192.168.15.5:1234/produto/cadastrar';
-  buscarURL = 'http://192.168.15.5:1234/produto/buscar';
-  listarURL = 'http://192.168.15.5:1234/produto/listar';
-  alterarURL = 'http://192.168.15.5:1234/produto/alterar';
-  removerURL = 'http://192.168.15.5:1234/produto/remover';
+  BaseURL = 'http://192.168.15.5:1234/api/farmacia';
+
 
   constructor(private http: HttpClient) { }
 
-  cadastrar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this.cadastrarURL, produto);
+  criarAutorizacao(headers: HttpHeaders): HttpHeaders {
+    var token = JSON.parse(localStorage.getItem('token'));
+    var httpHeaders: HttpHeaders = headers.set('authorization', token);
+    return httpHeaders;
   }
 
-  buscar(produto: Produto): Observable<Produto> {
+  cadastrar(produto: Produto, cnpj: string): Observable<Produto> {
+    var headers = new HttpHeaders();
+    headers = this.criarAutorizacao(headers);
+    return this.http.post<Produto>(`${this.BaseURL}/${cnpj}/produto`, produto, { headers: headers });
+  }
+
+  buscar(produto: Produto, cnpj: string): Observable<Produto> {
+    var headers = new HttpHeaders();
+    headers = this.criarAutorizacao(headers);
     var codProduto = produto.codigo;
-    var cnpjFarmacia = produto.cnpjFarmacia;
-    return this.http.get<Produto>(`${this.buscarURL}/${cnpjFarmacia}/${codProduto}`);
+    return this.http.get<Produto>(`${this.BaseURL}/${cnpj}/produto/${codProduto}`, { headers: headers });
   }
 
-  listar(cnpj: string): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.listarURL + "/" + cnpj);
+  alterar(produto: Produto, cnpj: string): Observable<Produto> {
+    var headers = new HttpHeaders();
+    headers = this.criarAutorizacao(headers);
+    return this.http.put<Produto>(`${this.BaseURL}/${cnpj}/produto`, produto, { headers: headers });
   }
 
-  alterar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this.alterarURL, produto);
-  }
-
-  remover(produto: Produto): void {
-    var cnpjFarmacia = produto.cnpjFarmacia;
-    var codProduto = produto.codigo;
-    var site = `${this.removerURL}/${cnpjFarmacia}/${codProduto}`;
-    this.http.get(site).subscribe((resp) => { });
+  remover(produto: Produto, cnpj: string): void {
+    var headers = new HttpHeaders();
+    headers = this.criarAutorizacao(headers);
+    var site = `${this.BaseURL}/${cnpj}/produto`;
+    this.http.get(site, { headers: headers }).subscribe((resp) => { });
   }
 
 }

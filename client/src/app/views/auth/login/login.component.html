@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <input matInput name="usuario" type="text" [(ngModel)]="user.usuario" />
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input matInput name="senha" type="password" [(ngModel)]="user.senha" />
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select [(ngModel)]="user.tipo">
+                <mat-option value="cliente">Cliente</mat-option>
+                <mat-option value="farmacia">farmacia</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <button (click)="logIn()" mat-button>
+            Log In
+        </button>
+        <button (click)="registrar()" mat-button>
+            Cadastre-se
+        </button>
+    </div>
+</div>

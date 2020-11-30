@@ -10,13 +10,12 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class CreateProdutoComponent implements OnInit {
 
-  cnpj: String;
+  cnpj: string;
   produto: Produto = {
     nome: "",
     codigo: "",
     preco: 0.0,
-    descricao: "",
-    cnpjFarmacia: ""
+    descricao: ""
   };
 
 
@@ -24,15 +23,14 @@ export class CreateProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => this.cnpj = params['cnpj']);
-    this.produto.cnpjFarmacia = this.cnpj;
   }
   cadastrar() {
     console.log(this.produto);
-    this.service.cadastrar(this.produto).subscribe((produto) => { });
+    this.service.cadastrar(this.produto, this.cnpj).subscribe((produto) => { });
   }
 
   retornarProdutos() {
-    this.router.navigate(['farma/' + this.produto.cnpjFarmacia + '/produto']);
+    this.router.navigate(['farma/']);
   }
 
 }

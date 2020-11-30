@@ -1,18 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const farmaciaController = require("../controllers/FarmaciaController.js");
-const produtoController = require("../controllers/ProdutoController.js");
+const FarmaciaController = require("../controllers/FarmaciaController.js");
+const CompraController = require('../controllers/CompraController.js');
+
+const authMiddleware = require('../middlewares/auth');
+
+router.use(authMiddleware);
 
 router.post("/farmacia/cadastrar", farmaciaController.store);
-router.get("/farmacia/buscar/:cnpj", farmaciaController.getOne);
+router.get("/farmacia/buscar/", farmaciaController.getByUser);
 router.get("/farmacia/listar", farmaciaController.get);
-router.post("/farmacia/alterar", farmaciaController.update);
-router.get("/farmacia/remover/:cnpj", farmaciaController.delete);
+router.put("/farmacia/alterar", farmaciaController.update);
+router.delete("/farmacia/remover/:cnpj", farmaciaController.delete);
 
-router.post("/produto/cadastrar", produtoController.store);
-router.get("/produto/buscar/:cnpjFarmacia/:codigo", produtoController.getOne);
-router.get("/produto/listar/:cnpjFarmacia", produtoController.get);
-router.post("/produto/alterar/", produtoController.update);
-router.get("/produto/remover/:cnpjFarmacia/:codigo", produtoController.delete);
+router.get("/farmacia/:cnpj/produto/:codigo", FarmaciaController.findProduto);
+router.post("/farmacia/:cnpj/produto", FarmaciaController.storeProduto);
+router.delete("/farmacia/:cnpj/produto", FarmaciaController.deleteProduto);
+router.put("/farmacia/:cnpj/produto", FarmaciaController.updateProduto);
+
+router.post("/compra", CompraController.store);
+router.put("/compra/transacao", CompraController.updateTransacao);
+router.get("/farmacia/compra/:cnpjFarma", CompraController.getTransacoesFarmacia);
+router.get("/usuario/compra", CompraController.getCompraUsario);
 
 module.exports = router;

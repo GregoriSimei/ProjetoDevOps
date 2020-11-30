@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreateUserComponent } from './views/auth/create-user/create-user.component';
+import { LoginComponent } from './views/auth/login/login.component';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
 import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.component';
 import { ListFarmaComponent } from './views/farma/list-farma/list-farma.component';
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
-import { ListProdutoComponent } from './views/prod/list-produto/list-produto.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'farma',
     component: ListFarmaComponent
   },
   {
@@ -25,15 +30,11 @@ const routes: Routes = [
     component: AlterarFarmaComponent
   },
   {
-    path: 'farma/:cnpj/produto',
-    component: ListProdutoComponent
-  },
-  {
-    path: 'farma/:cnpj/produto/:codigo/atualizar',
+    path: 'farma/:cnpj/produto/:codigo',
     component: UpdateProdutoComponent
   },
   {
-    path: 'farma/:cnpj/cadastrar/produto',
+    path: 'farma/:cnpj/produto',
     component: CreateProdutoComponent
   }
 ];

@@ -14,28 +14,27 @@ export class UpdateProdutoComponent implements OnInit {
     nome: "",
     codigo: "",
     preco: 0.0,
-    descricao: "",
-    cnpjFarmacia: ""
+    descricao: ""
   };
+
+  cnpjFarmacia = "";
 
   constructor(private router: Router, private produtoService: ProdutoService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.produto.codigo = params['codigo']);
-    this.route.params.subscribe(params => this.produto.cnpjFarmacia = params['cnpj']);
+    this.route.params.subscribe(params => this.cnpjFarmacia = params['cnpj']);
   }
 
   ngOnInit(): void {
-    console.log(this.produto.codigo);
-    console.log(this.produto.cnpjFarmacia);
-    this.produtoService.buscar(this.produto).subscribe((produto) => {
+    this.produtoService.buscar(this.produto, this.cnpjFarmacia).subscribe((produto) => {
       this.produto = produto;
     });
   }
 
   alterar(): void {
-    this.produtoService.alterar(this.produto).subscribe((produto => { }));
+    this.produtoService.alterar(this.produto, this.cnpjFarmacia).subscribe((produto => { }));
   }
 
   retornarProdutos() {
-    this.router.navigate(['farma/' + this.produto.cnpjFarmacia + '/produto']);
+    this.router.navigate(['/farma']);
   }
 }

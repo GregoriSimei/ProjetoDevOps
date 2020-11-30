@@ -4,6 +4,6 @@ export class Produto {
     codigo: string;
     preco: number;
     descricao: string;
-    cnpjFarmacia: String;
+    qtd?: Number;
     criadoEm?: Date;
 }

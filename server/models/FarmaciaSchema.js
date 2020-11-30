@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ProdutoSchema = require("./ProdutoSchema.js");
 
 const farmaciaSchema = new mongoose.Schema({
   nome: {
@@ -9,7 +10,12 @@ const farmaciaSchema = new mongoose.Schema({
     type: String,
     required: [true, "O campo cnpj é obrigatório"],
   },
-  criadoEm: { type: Date, default: Date.now }
+  criadoEm: { type: Date, default: Date.now },
+  usuarioID: {
+    type: String,
+    required: [true]
+  },
+  produtos: [ProdutoSchema]
 });
 
-module.exports = mongoose.model("Farmacias", farmaciaSchema);
+module.exports = mongoose.model("Farmaciass", farmaciaSchema);
