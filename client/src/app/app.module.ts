@@ -25,19 +25,8 @@ registerLocaleData(localePt);
 
 
 // Material Angular
-<<<<<<< HEAD
-import { MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
 
-=======
+
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -53,7 +42,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
->>>>>>> 7f394f6347b5951f1ef19319ed47560f443bfa00
+
 
 
 @NgModule({
@@ -83,10 +72,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
-<<<<<<< HEAD
     MatSelectModule,
-    MatCardModule
-=======
     MatInputModule,
     MatTableModule,
     MatSelectModule,
@@ -101,7 +87,6 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
       provide: LOCALE_ID,
       useValue: "pt-BR",
     },
->>>>>>> 7f394f6347b5951f1ef19319ed47560f443bfa00
   ],
   bootstrap: [AppComponent]
 })
