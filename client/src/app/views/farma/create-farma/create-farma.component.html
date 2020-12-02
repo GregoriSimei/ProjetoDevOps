@@ -1,21 +1,23 @@
-<div class="cadastro">
-    <div class="headerForm">
-        <p>
-            <button class="btnReturn" (click)="retornarFarmacias()">
-                <mat-icon>arrow_back</mat-icon>
-            </button>
-        </p>
+<div class="conteudo">
+    <mat-card id="cadastro" class="centro">
+    <div class="botao">
+        <button mat-raised-button color="" (click)="retornarFarmacias()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
     </div>
-    <div class="tltCad">
-        <h3>Cadastro de Farmácias</h3>
-    </div>
-    <div class="itens">
-        <label>Nome:</label>
-        <input type="text" placeholder="Nome da Farmacia" name="nome" [(ngModel)]="farma.nome" />
-        <label>CNPJ:</label>
-        <input type="text" placeholder="CNPJ da Farmacia" name="codigo" [(ngModel)]="farma.cnpj" />
-    </div>
-    <div class="botoes">
-        <button class="btn btnCadastro" (click)="create()">Cadastrar</button>
-    </div>
-</div>
+      <mat-card-title>Cadastro de Farmácias</mat-card-title>
+      
+      <div class="campos">
+        <mat-form-field class="campo">
+          <mat-label>Nome:</mat-label>
+          <input matInput name="nome" [(ngModel)]="farma.nome" />
+        </mat-form-field>
+        <mat-form-field class="campo">
+          <mat-label>CNPJ:</mat-label>
+          <input matInput name="cnpj" [(ngModel)]="farma.cnpj" />
+        </mat-form-field>
+        <div class="botao">
+            <button mat-raised-button color="primary" (click)="create()" (click)="retornarFarmacias()">Cadastrar</button>
+        </div>
+  </div>
+  </mat-card>

@@ -35,6 +35,6 @@ export class AlterarFarmaComponent implements OnInit {
   }
 
   retornarFarmacias() {
-    this.router.navigate(['']);
+    this.router.navigate(['/farma/list']);
   }
 }

@@ -10,6 +10,7 @@ import { NavComponent } from './components/template/nav/nav.component';
 
 
 import { AppComponent } from './app.component';
+import { ListFarmaProdComponent } from './views/farma/list-farma-prod/list-farma-prod.component';
 import { ListFarmaComponent } from './views/farma/list-farma/list-farma.component';
 import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.component';
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
@@ -44,6 +45,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 @NgModule({
   declarations: [
     AppComponent,
+    ListFarmaProdComponent,
     ListFarmaComponent,
     CreateFarmaComponent,
     CreateProdutoComponent,
