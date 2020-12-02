@@ -1,29 +1,35 @@
 <div>
-    <div>
-        <mat-form-field>
+        <mat-card class="box">
+            <mat-card-title>Login
+                <mat-icon class="iconPerson">person</mat-icon>
+            </mat-card-title>
+            
+        
+        
+        <mat-form-field appearance="outline">
             <mat-label>Usuario</mat-label>
             <input matInput name="usuario" type="text" [(ngModel)]="user.usuario" />
         </mat-form-field>
         <br>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
             <mat-label>Senha</mat-label>
             <input matInput name="senha" type="password" [(ngModel)]="user.senha" />
         </mat-form-field>
         <br>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
             <mat-label>Tipo</mat-label>
             <mat-select [(ngModel)]="user.tipo">
                 <mat-option value="cliente">Cliente</mat-option>
                 <mat-option value="farmacia">farmacia</mat-option>
             </mat-select>
         </mat-form-field>
-    </div>
-    <div>
-        <button (click)="logIn()" mat-button>
-            Log In
+        <mat-card-actions>
+        <button class="btn1" (click)="logIn()" mat-raised-button color="primary">
+            Entrar
         </button>
-        <button (click)="registrar()" mat-button>
+        <button class="btn2" (click)="registrar()" mat-button>
             Cadastre-se
         </button>
-    </div>
+    </mat-card-actions>
+    </mat-card>
 </div>
