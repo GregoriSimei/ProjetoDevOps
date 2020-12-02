@@ -4,6 +4,7 @@ import { CreateUserComponent } from './views/auth/create-user/create-user.compon
 import { LoginComponent } from './views/auth/login/login.component';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
 import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.component';
+import { ListFarmaProdComponent } from './views/farma/list-farma-prod/list-farma-prod.component';
 import { ListFarmaComponent } from './views/farma/list-farma/list-farma.component';
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
   },
   {
     path: 'farma',
+    component: ListFarmaProdComponent
+  },
+  {
+    path: 'farma/list',
     component: ListFarmaComponent
   },
   {

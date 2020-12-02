@@ -1,26 +1,31 @@
-<div class="cadastro">
-    <div class="headerForm">
-        <p>
-            <button class="btnReturn" (click)="retornarProdutos()">
-                <mat-icon>arrow_back</mat-icon>
-            </button>
-        </p>
+<div class="conteudo">
+    <mat-card id="cadastro" class="centro">
+    <div class="botao">
+        <button mat-raised-button color="" (click)="retornarProdutos()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
     </div>
-    <div class="tltCad">
-        <h3>Cadastro de Produtos</h3>
-    </div>
-    <div class="itens">
-        <label>Nome:</label>
-        <input type="text" placeholder="Nome do Produto" name="nome" [(ngModel)]="produto.nome" />
-        <label>Codigo:</label>
-        <input type="text" placeholder="Codigo do Produto" name="codigo" [(ngModel)]="produto.codigo" readonly />
-        <label>Preco:</label>
-        <input type="number" step="0.01" min="0" placeholder="Preço do Produto" name="preco"
-            [(ngModel)]="produto.preco" />
-        <label>Descricao: </label>
-        <input type="text" placeholder="Descrição do Produto" name="descricao" [(ngModel)]="produto.descricao" />
-    </div>
-    <div class="botoes">
-        <button class="btn btnAlterar" (click)="alterar()">Alterar</button>
-    </div>
-</div>
+      <mat-card-title>Atualização de Produtos</mat-card-title>
+      
+      <div class="campos">
+        <mat-form-field class="campo">
+          <mat-label>Nome:</mat-label>
+          <input matInput name="nome" [(ngModel)]="produto.nome" />
+        </mat-form-field>
+        <mat-form-field class="campo">
+          <mat-label>Codigo:</mat-label>
+          <input matInput name="codigo" [(ngModel)]="produto.codigo" />
+        </mat-form-field>
+        <mat-form-field class="campo">
+          <mat-label>Preco:</mat-label>
+          <input matInput name="preco" [(ngModel)]="produto.preco" />
+        </mat-form-field>
+        <mat-form-field class="campo">
+            <mat-label>Descricao:</mat-label>
+            <input matInput name="descricao" [(ngModel)]="produto.descricao" />
+          </mat-form-field>
+        <div class="botao">
+            <button mat-raised-button color="primary" (click)="alterar()" (click)="retornarProdutos()">Alterar</button>
+        </div>
+  </div>
+  </mat-card>
