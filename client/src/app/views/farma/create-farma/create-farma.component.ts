@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { Farmacia } from "src/app/models/Farmacia";
 import { FarmaService } from 'src/app/services/farma.service';
+import { NavegacaoService } from 'src/app/services/navegacao.service';
 
 @Component({
   selector: "app-create-farma",
@@ -15,7 +16,7 @@ export class CreateFarmaComponent implements OnInit {
     cnpj: ""
   };
 
-  constructor(private router: Router, private service: FarmaService) { }
+  constructor(private router: Router, private service: FarmaService, private navService: NavegacaoService) { }
 
   ngOnInit(): void {
     var user = JSON.parse(localStorage.getItem('user'));
@@ -29,6 +30,7 @@ export class CreateFarmaComponent implements OnInit {
   }
 
   logIn() {
+    this.navService.alterarTipoUsuario("farmacia");
     this.router.navigate(['farma']);
   }
 }
