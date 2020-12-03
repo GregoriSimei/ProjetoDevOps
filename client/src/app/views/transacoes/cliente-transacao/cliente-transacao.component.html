@@ -1,1 +1,18 @@
-<p>cliente-transacao works!</p>
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle *ngFor="let compra of compras">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                COMPRA {{compra._id}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Valor {{compra.valor | currency}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-grid-list cols="3" rowHeight="10:1" *ngFor="let transacao of compra.transacoes">
+            <mat-grid-tile>{{transacao.produto.nome}}</mat-grid-tile>
+            <mat-grid-tile>{{transacao.produto.preco}}</mat-grid-tile>
+            <mat-grid-tile>{{transacao.status}}</mat-grid-tile>
+        </mat-grid-list>
+    </mat-expansion-panel>
+</mat-accordion>

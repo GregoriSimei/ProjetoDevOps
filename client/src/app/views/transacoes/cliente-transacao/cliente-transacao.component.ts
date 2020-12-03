@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Compra } from 'src/app/models/Compra';
+import { CompraService } from 'src/app/services/compra.service';
 
 @Component({
   selector: 'app-cliente-transacao',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteTransacaoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private compraService: CompraService) { }
+
+  step = 1;
+  compras: Compra[] = [];
 
   ngOnInit(): void {
+    this.compraService.pegarComprasUsuario().subscribe(resposta => {
+      this.compras = resposta;
+    });
   }
 
+  setStep(index: number) {
+    this.step = index;
+  }
 }

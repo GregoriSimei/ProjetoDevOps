@@ -53,7 +53,7 @@ class CompraController {
 
         var transacaoAtualizar = req.body;
         var userId = transacaoAtualizar.userId;
-        var transacaoId = transacaoAtualizar.id;
+        var transacaoId = transacaoAtualizar._id;
 
         var compras = await CompraSchema.find({ userId: userId });
         var compraAtualizar = null;
@@ -63,14 +63,14 @@ class CompraController {
 
             transacoes.forEach(transacao => {
                 if (transacao.id == transacaoId) {
-                    transacao.status = transacaoAtualizar.status;
+                    transacao.status = "aprovado";
                     compraAtualizar = compra;
                 }
             });
         });
 
         if (compraAtualizar != null) {
-            await CompraSchema.updateOne(compraAtualizar);
+            var teste = await CompraSchema.updateOne({ _id: compraAtualizar.id }, { $set: compraAtualizar });
             msgResponse = "updated";
         }
 

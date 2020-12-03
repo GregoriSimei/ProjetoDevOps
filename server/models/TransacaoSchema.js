@@ -18,7 +18,7 @@ const TransacaoSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['cancelado', 'aceito', 'em andamento'],
+        enum: ['cancelado', 'aprovado', 'em andamento'],
         default: "em andamento"
     }
 });

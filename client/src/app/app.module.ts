@@ -17,6 +17,10 @@ import { CreateProdutoComponent } from './views/prod/create-produto/create-produ
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
 import { LoginComponent } from './views/auth/login/login.component';
+import { CompraComponent } from './views/compra/compra.component';
+import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
+import { FarmaTransacaoComponent } from './views/transacoes/farma-transacao/farma-transacao.component';
+import { ClienteTransacaoComponent } from './views/transacoes/cliente-transacao/cliente-transacao.component';
 
 import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
@@ -24,8 +28,6 @@ registerLocaleData(localePt);
 
 
 // Material Angular
-
-
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -41,10 +43,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { CompraComponent } from './views/compra/compra.component';
-import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
-import { FarmaTransacaoComponent } from './views/transacoes/farma-transacao/farma-transacao.component';
-import { ClienteTransacaoComponent } from './views/transacoes/cliente-transacao/cliente-transacao.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -87,6 +86,7 @@ import { ClienteTransacaoComponent } from './views/transacoes/cliente-transacao/
     MatIconModule,
     LayoutModule,
     MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [
     {
