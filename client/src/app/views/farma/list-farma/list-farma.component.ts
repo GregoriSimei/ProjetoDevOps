@@ -13,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListFarmaComponent implements OnInit {
 
   dataSource;
-  displayedColumns: string[] = ['cnpj', 'nome', 'criacao', 'alterar', 'deletar'];
+  displayedColumns: string[] = ['cnpj', 'nome', 'criacao', 'alterar', 'deletar', 'listarProdutos'];
 
   farmacias: Farmacia[] = [];
 
@@ -43,6 +43,10 @@ export class ListFarmaComponent implements OnInit {
   aplicarFiltro(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  listarProdutos() {
+    this.router.navigate(['/farma']);
   }
 
 }
