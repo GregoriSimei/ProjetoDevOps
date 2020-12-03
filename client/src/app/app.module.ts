@@ -42,6 +42,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { CompraComponent } from './views/compra/compra.component';
 
 
 
@@ -58,7 +59,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     HeaderComponent,
     NavComponent,
     CreateUserComponent,
-    LoginComponent
+    LoginComponent,
+    CompraComponent
   ],
   imports: [
     BrowserModule,

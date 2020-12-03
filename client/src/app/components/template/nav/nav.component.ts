@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 
@@ -10,7 +11,7 @@ export class NavComponent implements OnInit {
 
   open: boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
