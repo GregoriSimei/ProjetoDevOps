@@ -39,10 +39,10 @@
                 "dd/MM/yyyy"
             </ng-container>
 
-            <ng-container matColumnDef="adicionar">
+            <ng-container matColumnDef="adicionar" >
                 <th mat-header-cell *matHeaderCellDef> Adicionar </th>
                 <td mat-cell *matCellDef="let produto">
-                    <button class="btn btnAlterar">
+                    <button (click)="addCarrinho()" class="btn btnAlterar">
                         Adicionar
                     </button>
                 </td>

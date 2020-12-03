@@ -14,10 +14,13 @@ import { ProdutoService } from 'src/app/services/produto.service';
 export class ListProdComponent implements OnInit {
 
   dataSource;
-  displayedColumns: string[] = ['codigo', 'nome', 'preco', 'descricao', 'criacao', 'adicionar'];
-
-  farmacias: Farmacia[] = [];
   produtos: Produto[] = [];
+  displayedColumns: string[] = ['codigo', 'nome', 'preco', 'descricao', 'criacao', 'adicionar'];
+  //carrinho: MatTableDataSource<Produto> = new MatTableDataSource<Produto>(this.produtos);
+  farmacias: Farmacia[] = [];
+  
+  produto: Produto;
+  produtosCarrinho: Produto[] = [];
 
   constructor(private router: Router, private farmaService: FarmaService, private prodService: ProdutoService) { }
 
@@ -37,6 +40,10 @@ export class ListProdComponent implements OnInit {
   aplicarFiltro(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  addCarrinho(): void{
+    this.produtosCarrinho.push(this.produto);
+    console.log(this.produtosCarrinho);
   }
 
 }
