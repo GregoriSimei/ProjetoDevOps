@@ -43,6 +43,8 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { CompraComponent } from './views/compra/compra.component';
 import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
+import { FarmaTransacaoComponent } from './views/transacoes/farma-transacao/farma-transacao.component';
+import { ClienteTransacaoComponent } from './views/transacoes/cliente-transacao/cliente-transacao.component';
 
 
 
@@ -60,7 +62,9 @@ import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
     NavComponent,
     LoginComponent,
     CompraComponent,
-    ListProdComponent
+    ListProdComponent,
+    FarmaTransacaoComponent,
+    ClienteTransacaoComponent
   ],
   imports: [
     BrowserModule,

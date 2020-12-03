@@ -9,6 +9,8 @@ import { ListFarmaComponent } from './views/farma/list-farma/list-farma.componen
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
 import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
+import { ClienteTransacaoComponent } from './views/transacoes/cliente-transacao/cliente-transacao.component';
+import { FarmaTransacaoComponent } from './views/transacoes/farma-transacao/farma-transacao.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
     path: 'cliente',
     component: ListProdComponent
   },
+  {
+    path: 'farma/transacoes',
+    component: FarmaTransacaoComponent
+  },
+  {
+    path: 'cliente/transacoes',
+    component: ClienteTransacaoComponent
+  }
 ];
 
 @NgModule({

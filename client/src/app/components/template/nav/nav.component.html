@@ -1,6 +1,7 @@
 <mat-sidenav-container>
     <mat-sidenav mode="side" [(opened)]="open" fixedInViewport="true" fixedTopGap="65">
         <mat-nav-list>
+
             <a mat-list-item routerLink="/carrinho" *ngIf='tipoUsuario === "cliente"'>
                 <span class="material-icons">
                     shopping_cart
@@ -13,13 +14,20 @@
                 </span>
                 Produtos
             </a>
+            <a mat-list-item routerLink="/cliente/transacoes" *ngIf='tipoUsuario === "cliente"'>
+                <span class="material-icons">
+                    local_offer
+                </span>
+                Compras
+            </a>
+
             <a mat-list-item routerLink="/farma" *ngIf='tipoUsuario === "farmacia"'>
                 <span class="material-icons">
                     local_offer
                 </span>
                 Produtos
             </a>
-            <a mat-list-item routerLink="/transacoes" *ngIf='tipoUsuario === "farmacia"'>
+            <a mat-list-item routerLink="/farma/transacoes" *ngIf='tipoUsuario === "farmacia"'>
                 <span class="material-icons">
                     shopping_cart
                 </span>
