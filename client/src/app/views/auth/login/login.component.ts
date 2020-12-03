@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavegacaoService } from 'src/app/services/navegacao.service';
 import { Usuario } from '../../../models/Usuario';
 import { AuthService } from '../../../services/auth.service';
 
@@ -16,15 +17,20 @@ export class LoginComponent implements OnInit {
     tipo: ""
   };
 
-  constructor(private serviceAuth: AuthService, private router: Router) { }
+  constructor(private serviceAuth: AuthService, private navService: NavegacaoService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   logIn() {
     this.serviceAuth.logIn(this.user).subscribe(resposta => {
+
       this.adicionarLocalmente(resposta);
-      if (resposta.user.tipo == "cliente") {
+
+      var tipo = resposta.user.tipo;
+      this.navService.alterarTipoUsuario(tipo);
+
+      if (tipo == "cliente") {
         this.router.navigate(['/cliente']);
       }
       else {

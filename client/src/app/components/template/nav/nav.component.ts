@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { NavegacaoService } from '../../../services/navegacao.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,14 +10,19 @@ import { HeaderComponent } from '../header/header.component';
 export class NavComponent implements OnInit {
 
   open: boolean = true;
+  tipoUsuario: String = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private navService: NavegacaoService) {
+    navService.cliente$.subscribe(tipo => {
+      this.tipoUsuario = tipo;
+    });
+  }
 
   ngOnInit(): void {
+    console.log(JSON.parse(localStorage.getItem("user")).tipo);
   }
 
   opened(valor) {
     this.open = valor;
   }
-
 }

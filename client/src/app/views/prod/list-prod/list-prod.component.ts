@@ -16,9 +16,9 @@ export class ListProdComponent implements OnInit {
   dataSource;
   produtos: Produto[] = [];
   displayedColumns: string[] = ['codigo', 'nome', 'preco', 'descricao', 'criacao', 'adicionar'];
-  //carrinho: MatTableDataSource<Produto> = new MatTableDataSource<Produto>(this.produtos);
+
   farmacias: Farmacia[] = [];
-  
+
   produto: Produto;
   produtosCarrinho: Produto[] = [];
 
@@ -32,7 +32,6 @@ export class ListProdComponent implements OnInit {
           this.produtos.unshift(produto);
         });
       });
-      console.log(this.produtos);
       this.dataSource = new MatTableDataSource(this.produtos);
     });
   }
@@ -41,7 +40,7 @@ export class ListProdComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  addCarrinho(): void{
+  addCarrinho(): void {
     console
     this.produtosCarrinho.push(this.produto);
     console.log(this.produtosCarrinho);
