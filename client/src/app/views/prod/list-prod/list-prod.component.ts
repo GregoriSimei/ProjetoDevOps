@@ -42,6 +42,7 @@ export class ListProdComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   addCarrinho(): void{
+    console
     this.produtosCarrinho.push(this.produto);
     console.log(this.produtosCarrinho);
   }
