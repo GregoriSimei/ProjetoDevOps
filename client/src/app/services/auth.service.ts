@@ -16,4 +16,8 @@ export class AuthService {
     return this.http.post<any>(`${this.URLBase}/autenticar`, usuario);
   }
 
+  registar(usuario: Usuario) {
+    return this.http.post<any>(`${this.URLBase}/registrar`, usuario);
+  }
+
 }
