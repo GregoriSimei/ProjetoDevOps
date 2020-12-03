@@ -16,7 +16,6 @@ import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.co
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';
-import { CreateUserComponent } from './views/auth/create-user/create-user.component';
 import { LoginComponent } from './views/auth/login/login.component';
 
 import localePt from "@angular/common/locales/pt";
@@ -59,7 +58,6 @@ import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
     FooterComponent,
     HeaderComponent,
     NavComponent,
-    CreateUserComponent,
     LoginComponent,
     CompraComponent,
     ListProdComponent

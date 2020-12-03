@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     this.serviceAuth.logIn(this.user).subscribe(resposta => {
-      var token = "Bearer " + resposta.token;
-      localStorage.setItem('token', JSON.stringify(token));
-      localStorage.setItem('user', JSON.stringify(resposta.user));
+      this.adicionarLocalmente(resposta);
       if (resposta.user.tipo == "cliente") {
         this.router.navigate(['/cliente']);
       }
@@ -37,7 +35,19 @@ export class LoginComponent implements OnInit {
 
   registrar() {
     this.serviceAuth.registar(this.user).subscribe(resposta => {
-      this.logIn();
+      this.adicionarLocalmente(resposta);
+      if (resposta.user.tipo == "farmacia") {
+        this.router.navigate(['farma/create']);
+      }
+      else {
+        this.logIn();
+      }
     })
+  }
+
+  adicionarLocalmente(any) {
+    var token = "Bearer " + any.token;
+    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('user', JSON.stringify(any.user));
   }
 }

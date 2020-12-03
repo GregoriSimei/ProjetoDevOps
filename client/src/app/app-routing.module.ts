@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateUserComponent } from './views/auth/create-user/create-user.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { CompraComponent } from './views/compra/compra.component';
 import { AlterarFarmaComponent } from './views/farma/alterar-farma/alterar-farma.component';

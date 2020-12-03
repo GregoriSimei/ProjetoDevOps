@@ -18,16 +18,17 @@ export class CreateFarmaComponent implements OnInit {
   constructor(private router: Router, private service: FarmaService) { }
 
   ngOnInit(): void {
-
+    var user = JSON.parse(localStorage.getItem('user'));
+    this.farma.usuarioId = user._id;
   }
 
   create(): void {
     this.service.create(this.farma).subscribe((farma) => {
-      console.log(farma);
+      this.logIn();
     });
   }
 
-  retornarFarmacias() {
-    this.router.navigate(['/farma/list']);
+  logIn() {
+    this.router.navigate(['farma']);
   }
 }
