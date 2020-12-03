@@ -43,6 +43,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { CompraComponent } from './views/compra/compra.component';
+import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
 
 
 
@@ -60,7 +61,8 @@ import { CompraComponent } from './views/compra/compra.component';
     NavComponent,
     CreateUserComponent,
     LoginComponent,
-    CompraComponent
+    CompraComponent,
+    ListProdComponent
   ],
   imports: [
     BrowserModule,

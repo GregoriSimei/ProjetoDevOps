@@ -8,6 +8,7 @@ import { CreateFarmaComponent } from './views/farma/create-farma/create-farma.co
 import { ListFarmaProdComponent } from './views/farma/list-farma-prod/list-farma-prod.component';
 import { ListFarmaComponent } from './views/farma/list-farma/list-farma.component';
 import { CreateProdutoComponent } from './views/prod/create-produto/create-produto.component';
+import { ListProdComponent } from './views/prod/list-prod/list-prod.component';
 import { UpdateProdutoComponent } from './views/prod/update-produto/update-produto.component';
 
 const routes: Routes = [
@@ -46,8 +47,11 @@ const routes: Routes = [
   {
     path: 'carrinho',
     component: CompraComponent
-  }
-
+  },
+  {
+    path: 'cliente',
+    component: ListProdComponent
+  },
 ];
 
 @NgModule({

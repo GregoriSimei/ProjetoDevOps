@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
   }
 
   registrar() {
-    this.router.navigate(["/cadastro"]);
+    this.serviceAuth.registar(this.user).subscribe(resposta => {
+      this.logIn();
+    })
   }
 }
