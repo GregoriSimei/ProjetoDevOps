@@ -23,3 +23,49 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('createFarma', () => {
+    const usuario = 'Farmacia' + Math.round(Math.random() * (500 - 1) + 1);
+    const bodyReq = {
+        usuario: usuario,
+        senha: 'farmacia',
+        tipo: 'farmacia'
+    };
+
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:1234/registrar',
+        body: bodyReq
+    }).then(response => {
+        expect(response.status).be.eq(200);
+        expect(response.body).has.property('token');
+        expect(response.body.token).is.not.null;
+        expect(response.body).has.property('user');
+        expect(response.body.user).is.not.null;
+
+        Cypress.env('createdFarma', bodyReq);
+    });
+});
+
+Cypress.Commands.add('createCliente', ()=> {
+    const usuario = 'cliente' + Math.round(Math.random() * (500 - 1) + 1);
+    const bodyReq = {
+        usuario: usuario,
+        senha: 'cliente',
+        tipo: 'cliente'
+    };
+
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:1234/registrar',
+        body: bodyReq
+    }).then(response => {
+        expect(response.status).be.eq(200);
+        expect(response.body).has.property('token');
+        expect(response.body.token).is.not.null;
+        expect(response.body).has.property('user');
+        expect(response.body.user).is.not.null;
+
+        Cypress.env('createdCliente', bodyReq);
+    });
+});
